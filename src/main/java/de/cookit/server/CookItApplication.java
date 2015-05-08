@@ -1,5 +1,11 @@
 package de.cookit.server;
 
+import jersey.repackaged.com.google.common.collect.Lists;
+
+import com.mongodb.MongoClient;
+import com.mongodb.MongoCredential;
+import com.mongodb.ServerAddress;
+
 import io.dropwizard.Application;
 import io.dropwizard.assets.AssetsBundle;
 import io.dropwizard.setup.Bootstrap;
@@ -21,7 +27,13 @@ public class CookItApplication extends Application<CookItConfiguration>{
 	@Override
 	public void run(CookItConfiguration configuration, Environment environment)
 			throws Exception {
-		environment.jersey().register(new CookItResource());
+		
+		final ServerAddress address = new ServerAddress("host", 1234);
+		
+		final MongoCredential credentials = MongoCredential.createCredential("user", "database", "password".toCharArray());
+		
+//		environment.jersey().register(new CookItResource(new MongoClient(address, Lists.newArrayList(credentials))));
+		environment.jersey().register(new CookItResource(new MongoClient()));
 	}
 
 }

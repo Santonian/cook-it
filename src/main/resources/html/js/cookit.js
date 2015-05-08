@@ -1,6 +1,12 @@
-var cookitApp = angular.module('cookitApp', [])
+var cookitApp = angular.module('cookitApp', ['ngResource'])
 
-cookitApp.controller("ingredientsController", function($scope){
+
+cookitApp.factory("Ingredient", function($resource){
+	return $resource('/service/cookit/storeIngredient')
+	
+});
+
+cookitApp.controller("ingredientsController", function($scope, Ingredient){
 	$scope.ingredientTypes = [
 	               {name: "Gemüse"}, 
 	               {name: "Gewürz"}, 
@@ -9,4 +15,7 @@ cookitApp.controller("ingredientsController", function($scope){
 	
 	
 	
+	$scope.storeIngredient = function() {
+		Ingredient.save($scope.ingredient)
+	}
 });
