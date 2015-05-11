@@ -8,3 +8,13 @@ server:
     
 logging:
   level: INFO  
+  
+
+#Mongo DB Configuration
+#specify environment variables to connect to a mongodb other than localhost
+database:
+  host: ${env.mongodb_host!'localhost'}
+  database: ${env.mongodb_database!'cookit'}
+  user: ${env.mongodb_user!''}
+  password: ${env.mongodb_password!''}
+  
