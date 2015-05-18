@@ -9,3 +9,7 @@ mongodb_password - MongoDB password
 
 Inspired from this
 https://www.youtube.com/watch?v=MRrSAkEAnZQ
+
+
+used eclipse plugins
+- http://dist.springsource.org/snapshot/GRECLIPSE/e4.4 

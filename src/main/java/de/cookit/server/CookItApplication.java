@@ -40,10 +40,10 @@ public class CookItApplication extends Application<CookItConfiguration>{
 		}
 		
 		if(databaseConfiguration.getUser().isEmpty() && databaseConfiguration.getPassword().isEmpty()){
-			environment.jersey().register(new CookItResource(new MongoClient(address)));
+			environment.jersey().register(new CookItResource(new MongoClient(address), databaseConfiguration.getName()));
 		}else{
 			final MongoCredential credentials = MongoCredential.createCredential(databaseConfiguration.getUser(), databaseConfiguration.getDatabase(), databaseConfiguration.getPassword().toCharArray());
-			environment.jersey().register(new CookItResource(new MongoClient(address, Lists.newArrayList(credentials))));
+			environment.jersey().register(new CookItResource(new MongoClient(address, Lists.newArrayList(credentials)), databaseConfiguration.getName()));
 		}
 	}
 

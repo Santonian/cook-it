@@ -24,8 +24,8 @@ public class CookItResource  {
 
 	private Datastore datastore;
 	
-	public CookItResource(final MongoClient mongoClient) {
-		datastore = new Morphia().createDatastore(mongoClient, "cookit");
+	public CookItResource(final MongoClient mongoClient, final String dbName) {
+		datastore = new Morphia().createDatastore(mongoClient, dbName);
 	}
 	
 	@GET

@@ -17,6 +17,15 @@ public class Ingredient {
 	
 	public IngredientType type;
 
+	public Ingredient(){
+		
+	}
+	
+	public Ingredient(final String name, final IngredientType type){
+		this.name = name;
+		this.type = type;
+	}
+	
 	public String getId() {
 		return id;
 	}

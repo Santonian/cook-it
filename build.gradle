@@ -1,4 +1,5 @@
 apply plugin: 'java'
+apply plugin: 'groovy'
 
 sourceCompatibility = 1.8
 
@@ -13,4 +14,8 @@ dependencies {
     compile 'io.dropwizard:dropwizard-assets:0.8.1'
     compile 'org.mongodb.morphia:morphia:0.111'
 	compile 'de.thomaskrille:dropwizard-template-config:1.1.0'
+
+
+    testCompile 'org.spockframework:spock-core:1.0-groovy-2.4'
+    testCompile 'org.codehaus.groovy:groovy-all:2.4.3'
 }

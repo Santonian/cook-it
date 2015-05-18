@@ -8,6 +8,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class DatabaseConfiguration {
 
+	@NotNull
+	private String name;
+	
 	@NotEmpty
 	private String host;
 	
@@ -22,7 +25,17 @@ public class DatabaseConfiguration {
 	@NotNull
 	private String password;
 
-    @JsonProperty
+	@JsonProperty
+    public String getName() {
+		return name;
+	}
+
+	@JsonProperty
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	@JsonProperty
 	public String getHost() {
 		return host;
 	}
